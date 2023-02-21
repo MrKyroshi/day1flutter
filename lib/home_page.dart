@@ -9,8 +9,8 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
-  TextEditingController mail = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController mailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +33,14 @@ class _MyHomeState extends State<MyHome> {
             backgroundImage: AssetImage("asset/zozo.png"),
           ),
           TextField(
-            controller: mail,
+            controller: mailController,
             decoration: InputDecoration(
               hintText: "Entrez votre adresse mail"
             ),
           ),
           TextField(
             obscureText: true,
-            controller: password,
+            controller: passwordController,
             decoration: InputDecoration(
               hintText: "Entrez votre password"
             ),
@@ -58,7 +58,7 @@ class _MyHomeState extends State<MyHome> {
               // naviger vers la page dashboard
               Navigator.push(context, MaterialPageRoute(
                   builder:(context){
-                    return DashBoard();
+                    return DashBoard(password: passwordController.text ,);
                   }
               ));
 

@@ -1,6 +1,14 @@
+import 'package:day1flutter/view/liste_personne.dart';
+import 'package:day1flutter/view/messagerie.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+
+
 class DashBoard extends StatefulWidget {
-  const DashBoard({Key? key}) : super(key: key);
+//attributs
+String password;
+   DashBoard({Key? key,required String this.password}) : super(key: key);
 
   @override
   State<DashBoard> createState() => _DashBoardState();
@@ -34,7 +42,7 @@ class _DashBoardState extends State<DashBoard> {
           ),
           BottomNavigationBarItem(
             label: "Listes",
-            icon: Icon(Icons.list_alt),)
+            icon: FaIcon(FontAwesomeIcons.comment),)
         ],
       ),
     );
@@ -49,9 +57,9 @@ class _DashBoardState extends State<DashBoard> {
           index= value;
         });
       },
-      children: const [
-        Text("Premiere page"),
-        Text('Deuxieme page')
+      children:   [
+        ListPersonne(passeword: widget.password),
+        Messagerie()
       ],
     );
   }
